@@ -1,12 +1,29 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
+export const viewport: Viewport = {
+  themeColor: '#9f1239',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+}
+
 export const metadata: Metadata = {
-  title: 'WineSnap — AI Wine Picker',
-  description: 'Photo a wine shelf and get the best bottle for your budget.',
+  title: 'WineSnap',
+  description: 'Photo a wine shelf. Get the best bottle.',
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'WineSnap',
+  },
+  icons: {
+    icon: '/icon-192.png',
+    apple: '/icon-192.png',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
