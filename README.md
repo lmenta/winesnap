@@ -76,6 +76,8 @@ The backend is **stateless** — no database, no caching. Every request runs the
 | LLM | OpenRouter |
 | Frontend | Next.js · TypeScript · Tailwind |
 | PWA | Web App Manifest + camera capture |
+| iOS app | SwiftUI (`ios/`) |
+| Android app | Kotlin · Jetpack Compose (`android/`) |
 | Backend hosting | Railway |
 | Frontend hosting | Vercel |
 
@@ -187,6 +189,19 @@ curl -X POST http://localhost:8000/api/analyze \
 
 1. Connect the `frontend/` directory to [Vercel](https://vercel.com)
 2. Set `NEXT_PUBLIC_API_URL` to your Railway backend URL
+
+---
+
+## Native mobile apps
+
+Besides the PWA, there are native clients that call the same `POST /api/analyze` endpoint:
+
+| Platform | Folder | Stack | Docs |
+|----------|--------|-------|------|
+| iPhone | [`ios/`](ios/) | SwiftUI, iOS 17+ | [ios/README.md](ios/README.md) |
+| Android | [`android/`](android/) | Kotlin, Jetpack Compose, Android 9+ | [android/README.md](android/README.md) |
+
+Both default to a backend on your machine (`localhost:8000` from the iOS Simulator, `10.0.2.2:8000` from the Android emulator). Point them at your Railway URL for production builds.
 
 ---
 
